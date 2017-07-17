@@ -2,7 +2,7 @@ language: ruby
 rvm:
  - 2.4.1
 deploy:
-  provider: cloudfoundary
+  provider: cloudfoundry
   username: shijingkun886@gmail.com
   password: P900705ivotal.com
   api: https://api.run.pivotal.io
