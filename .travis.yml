@@ -13,9 +13,10 @@ before_install:
 
 script:
  - bundle exec rake assets:precompile
-
+ - docker build -f ./Dockerfile_backend -t mygirl_app:$TRAVIS_BUILD_NUMBER .
 after_success:
- - docker build -f ./Dockerfile_backend -t mygirl_app
+ - docker images
+ - docker push mygirl_app:$TRAVIS_BUILD_NUMBER
 
 
 #deploy:
