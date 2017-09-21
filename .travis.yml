@@ -16,8 +16,7 @@ script:
  - docker build -f ./Dockerfile_backend -t mygirl_app:$TRAVIS_BUILD_NUMBER .
 after_success:
  - docker images
- - docker push mygirl_app:$TRAVIS_BUILD_NUMBER
-
+ - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker tag mygirl_app:$TRAVIS_BUILD_NUMBER $DOCKER_USERNAME/mygirl_app:$TRAVIS_BUILD_NUMBER && docker push $DOCKER_USERNAME/mygirl_app:$TRAVIS_BUILD_NUMBER
 
 #deploy:
 #  provider: cloudfoundry
