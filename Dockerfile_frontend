@@ -1,0 +1,19 @@
+FROM	ubuntu:latest 
+
+MAINTAINER  kunshi
+
+RUN \
+mkdir -p /usr/local/eportfolio &&\
+apt-get update && apt-get install -y nginx
+
+RUN \
+[ -d /etc/nginx ] && rm -rf /etc/nginx
+
+LABEL GO_LABEL='REPLACE_LABEL'
+ADD ./docker/via_frontend/nginx_conf /etc/nginx
+ADD ./public/assets /var/assets
+
+EXPOSE 80
+
+#CMD ["/etc/init.d/nginx", "start"]
+CMD ["/etc/init.d/nginx", "start"]
