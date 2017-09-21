@@ -1,0 +1,4 @@
+---
+- name: install docker_swarm-worker
+  command: docker swarm join--token {{token}} {{swarm_master_IP}}:2377
+  sudo: yes

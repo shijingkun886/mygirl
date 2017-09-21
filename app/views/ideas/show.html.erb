@@ -1,19 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @idea.name %>
-</p>
+<div class="row">
+  <div class="col-md-5">
+    <strong>Name:</strong>
+    <%= @idea.name %>
+  </div>
+
+  <div class="col-md-5">
+    <strong>Description:</strong>
+    <%= @idea.description %>
+  </div>
+</div>
+
 
 <p>
-  <strong>Description:</strong>
-  <%= @idea.description %>
+  <%= image_tag(@idea.picture.url, width:"100%", :class => "img-rounded") if @idea.picture.present? %>
 </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag(@idea.picture.url, width:600) if @idea.picture.present? %>
-</p>
-
-<%= link_to 'Edit', edit_idea_path(@idea) %> |
-<%= link_to 'Back', ideas_path %>
+<div class="text-center">
+<%= link_to 'Edit', edit_idea_path(@idea), class:"btn btn-primary" %> |
+<%= link_to 'Back', ideas_path , class: "btn btn-default"%>
+</div>

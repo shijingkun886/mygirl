@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/kunshi/Project/railsgirl/mygirl/deploy","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}

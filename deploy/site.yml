@@ -1,0 +1,17 @@
+---
+# Install ELK stack
+- hosts: all
+  roles:
+    - common
+  vars:
+    jdk_version: java-1.8.0-openjdk.x86_64
+
+- hosts: docker_swarm-master
+  roles:
+    - docker_swarm-master
+
+- hosts: docker_swarm-worker
+  roles:
+    - docker_swarm-worker
+  vars:
+    swarm_master_IP: "{{groups['docker_swarm-master']|join(' ')}}"

@@ -1,0 +1,13 @@
+[consul]
+192.168.35.11 ansible_user=vagrant
+
+[docker_swarm-master]
+192.168.35.11 ansible_user=vagrant
+
+[nginx]
+192.168.35.11 ansible_user=vagrant
+
+[app]
+192.168.35.12 ansible_user=vagrant
+192.168.35.13 ansible_user=vagrant
+

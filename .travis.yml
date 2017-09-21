@@ -1,10 +1,27 @@
 language: ruby
 rvm:
  - 2.4.1
+install:
+ - bundle install
+
+services:
+ - docker
+
+before_install:
+ - docker pull nginx
+ - docker pull rails:onbuild
+
+script:
+ - bundle exec rake assets:precompile
+
+after_success:
+ - docker build .
+
+
 deploy:
   provider: cloudfoundry
   username: shijingkun886@gmail.com
-  password: P900705ivotal.com
+  password: 
   api: https://api.run.pivotal.io
   organization: kun-org
   space: development

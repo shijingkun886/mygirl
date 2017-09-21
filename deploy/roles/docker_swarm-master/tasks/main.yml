@@ -1,0 +1,15 @@
+---
+#- name: setup docker swarm master
+#  command: docker swarm init --advertise-addr {{inventory_hostname}}
+#  sudo: yes
+
+- name: get docker swarm worker token for jon the swarm
+  command:
+  register: worker_token
+
+- name: cache token 
+  set_fact:
+    token: "{{worker_token.stdout}}"
+
+- debug:
+    var: "{{token}}"
